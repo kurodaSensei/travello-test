@@ -1,0 +1,35 @@
+{
+  "name": "alfredo/alfredo-theme",
+  "description": "Alfredo - Theme for WP",
+  "type": "wp-theme",
+  "license": "GNU v2",
+  "authors": [
+    {
+      "name": "Alfredo",
+      "email": "alfredorm2353@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "timber/timber": "9999999-dev"
+  },
+  "autoload": {
+    "psr-4": {
+      "Alfredo\\": "classes/"
+    }
+  },
+  "scripts": {
+    "remove-git-submodules": "find . -mindepth 2 -type d -name .git | xargs rm -rf",
+    "post-install-cmd": [
+      "@remove-git-submodules"
+    ],
+    "post-update-cmd": [
+      "@remove-git-submodules"
+    ]
+  },
+  "config": {
+    "allow-plugins": {
+      "composer/installers": true
+    }
+  }
+}

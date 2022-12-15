@@ -1,0 +1,34 @@
+{% extends "layouts/under.twig" %}
+{% block content %}
+<div class="under-container">
+    <div class="row mx-0 flex-lg-row flex-column-reverse">    
+        <div class="col-lg-6 col-12 lg-py-0 py-4 under-bg-pattern">
+            <div class="d-flex justify-content-center align-items-center">
+                <div class="card under-card">
+                    <div class="card-header under-card__header py-3">
+                        <h1>Estamos en construcción</h1>
+                    </div>
+                    <div class="card-body under-card__body py-4">
+                        <p>
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta assumenda iste ipsa, sunt fugiat esse ab eius quae consequuntur error sit et magni provident. Suscipit officia rerum repudiandae eius architecto?
+                        </p>
+                        <p>Suscríbete para que recibas una notificación cuando estemos listos</p>
+                        {% filter shortcodes %}
+                            [contact-form-7 id="10" title="Formulario de Suscripción"]
+                        {% endfilter %}
+                        {# <input type="email" name="email" id="email" class="form-control under-input mt-4" placeholder="tucorreo@email.com">
+                        <button class="btn d-block under-btn mx-auto mt-4">
+                            Suscribirme
+                        </button> #}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-12 lg-py-0 py-4 under-bg-dark-purple">
+            <div class="d-flex justify-content-center align-items-center">
+                <img src="{{site.theme.link}}/static/logo-under.svg" alt="" class="img-responsive under-image">    
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

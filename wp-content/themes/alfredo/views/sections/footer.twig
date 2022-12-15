@@ -1,0 +1,34 @@
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-2 footer__logo">
+                <img 
+                src="{{ Image(options.logo).src }}" 
+                alt="Logo" class="brand-container__img img-fluid">
+            </div>
+            <div class="col-12 col-lg-10 footer__menu">
+                <ul class="navbar-nav">
+                {% for item in footerMenu.items %}
+                    <li class="nav__item">
+                        <a target="{{item.target}}" data-lg="{{lg}}" class="{{item.class}}" href="{{ item.link }}">
+                            {{ item.title }}
+                        </a>
+                    </li>
+                {% endfor %}
+                </ul>
+                <ul class="">
+                {% for item in options.social_links %}
+                    <li class="">
+                        <a target="{{item.target}}" href="{{ item.link }}">
+                            <img src="{{Image(item.icon).src}}" alt="">
+                        </a>
+                    </li>
+                {% endfor %}
+                </ul>
+            </div>
+            <div class="col-12 footer__copyright">
+                {{options.copy}}
+            </div>
+        </div>
+    </div>
+{{function('wp_footer')}}

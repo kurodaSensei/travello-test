@@ -1,0 +1,23 @@
+<section class="py-5" style="background-color: {{services.background_color}}">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-12">
+                <h2>{{services.title}}</h2>
+                {{services.text}}
+                {% if services.button %}
+                    {% include "snippets/button--link.twig" with { button: services.button } %}
+                {% endif %}
+            </div>
+            <div class="col-lg-8 col-12">
+                <div class="row">
+                    {% for service in services.services %}
+                        <div class="col-lg-6 col-12">
+                            {% include "snippets/service-card.twig" with { service } %}
+                        </div>
+                    {% endfor %}
+                </div>
+                    
+            </div>
+        </div>
+    </div>
+</section>

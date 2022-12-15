@@ -1,0 +1,21 @@
+{% extends "layouts/base.twig" %}
+{% block content %}
+    {% set hero = getField('hero', page.ID) %}
+    {% include "sections/hero-landing.twig" 
+        with {
+            hero
+        } 
+    %}
+
+    {% set about = getField('about', page.ID) %}
+    {% include "sections/about.twig" with { about } %}
+
+    {% set services = getField('service_content', page.ID) %}
+    {% include "sections/services.twig" with { services } %}
+
+    {% set clients = getField('clients_content', page.ID) %}
+    {% include "sections/clients.twig" with { clients } %}
+
+    {% set contact = getField('contact_content', page.ID) %}
+    {% include "sections/contact.twig" with { contact } %}
+{% endblock %}
