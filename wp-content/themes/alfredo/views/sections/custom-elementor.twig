@@ -16,6 +16,7 @@
 		{% for hotel in hotels %}
 			<div class="col-lg-3 col-12">
 				<div class="card card--hotel">
+					<img src="{{fn('get_stylesheet_directory_uri')}}/static/favorite.svg" class="hotel__favorite" width="24" height="100%" loading="lazy" alt="">
 					<img src="{{fn('get_the_post_thumbnail_url', hotel.ID)}}" class="card-img-top" alt="..." loading="lazy" width="320" height="100%" lazyload>
 					<div class="card-body">
 						<h2 class="card-title mt-2 hotel__title">{{hotel.post_title}}</h2>
