@@ -1,0 +1,32 @@
+.topbar {
+  background-color: $black;
+  height: 68px;
+  padding: 0px 110px 0px 110px;
+  &__item {
+    &--social {
+      &:not(:last-child) {
+        margin-right: 2rem !important;
+      }
+    }
+    &:not(:last-child) {
+      margin-right: 1rem;
+    }
+    display: flex;
+    align-items: center;
+  }
+  &__link {
+    @include font("Roboto", $fs-md, sans-serif, 400);
+    line-height: 27px;
+    color: $white;
+    &:hover {
+      color: $white;
+    }
+  }
+
+  &__icon {
+    height: 20px;
+    &--social {
+      margin-top: 5px;
+    }
+  }
+}

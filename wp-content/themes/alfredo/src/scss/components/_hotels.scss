@@ -1,0 +1,76 @@
+.card--hotel {
+  background-color: $black;
+  border: none;
+}
+
+.hotels {
+  &__btn {
+    button {
+      background: transparent;
+      border: 2px solid $white;
+      color: $white;
+      height: 45px;
+      text-transform: uppercase;
+      width: 151px;
+      @include font("Roboto", 15px, sans-serif, 900);
+    }
+  }
+  &__filter {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    &-item {
+      color: $white;
+      @include font("Open Sans", 14, sans-serif, 700);
+      &:hover,
+      &.active {
+        background-color: $yellow;
+        border-radius: 6px;
+        color: $black;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.hotel {
+  &__title {
+    color: $white !important;
+    @include font("Arsenal", 24px, sans-serif, 700);
+  }
+  &__rate {
+    text-align: left;
+  }
+  &__price {
+    text-align: right;
+
+    &--normal {
+      color: $gray;
+      font-style: italic;
+      text-decoration: line-through;
+      @include font("DM Serif Display", 22px, serif, 400);
+    }
+
+    &--sell {
+      color: $white;
+      @include font("DM Serif Display", 48px, serif, 400);
+    }
+
+    &--text {
+      color: $white;
+      @include font("DM Serif Display", 18px, serif, 400);
+    }
+  }
+  &__excerpt {
+    color: $gray-2;
+    @include font("Open Sans", 16px, sans-serif, 400);
+  }
+  &__button {
+    background-color: $blue;
+    border: none;
+    color: $white;
+    height: 82px;
+    text-transform: uppercase;
+    @include font("Open Sans", 17px, sans-serif, 400);
+  }
+}

@@ -1,0 +1,15 @@
+.search {
+  &__input {
+    height: 75px;
+    padding-left: 34px;
+    @include font("Open Sans", 19px, sans-serif, 400);
+    &::placeholder {
+      @include font("Open Sans", 19px, sans-serif, 400);
+    }
+  }
+  &__input-addon {
+    background-color: $black;
+    border: 1px solid $black;
+    padding: 1rem 1.5rem;
+  }
+}

@@ -1,20 +1,13 @@
-
 {% block html_head_container %}
-    {% include 'sections/header.twig' %}
-	{% block head %}
-	{% endblock %}
-    </head>
-{% endblock %}
-<body class="{{body_class}}">
-    <header>
-        {% include "sections/nav.twig" %}
-    </header>
-    <main>
-        {% block content %}
-        {% endblock %}
-    </main>
-    {% include "sections/footer.twig" %}
-    {% block footer %}
-    {% endblock %}
-    </footer>        
-</body>
+	{% include 'sections/header.twig' %}
+	{% block head %}{% endblock %}
+</head>{% endblock %}<body class="{{body_class}}">
+{% include "sections/topbar.twig" %}
+<header>
+	{% include "sections/nav.twig" %}
+</header>
+<main>
+	{% block content %}{% endblock %}
+</main>
+{% include "sections/footer.twig" %}
+{% block footer %}{% endblock %}</body></footer></body>

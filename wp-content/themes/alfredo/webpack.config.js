@@ -4,8 +4,7 @@
 
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const cssnano = require("cssnano");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 
 const JS_DIR = path.resolve(__dirname, "src/js");
@@ -29,7 +28,8 @@ const plugins = () => [
   }),
 ];
 
-const rules = [{
+const rules = [
+  {
     test: /\.js$/,
     include: [JS_DIR],
     exclude: /node_modules/,
@@ -45,15 +45,30 @@ const rules = [{
     use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
   },
   {
-    test: /\.(woff|woff2|ttf|otf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
-    use: [{
-      loader: 'file-loader',
-      options: {
-        name: '[name].[ext]',
-        outputPath: './fonts',
-        publicPath: '../../dist/fonts',
-      }
-    }]
+    test: /\.(woff|woff2|ttf|otf|eot)(\?v=\d+\.\d+\.\d+)?$/,
+    use: [
+      {
+        loader: "file-loader",
+        options: {
+          name: "[name].[ext]",
+          outputPath: "./fonts",
+          publicPath: "../../dist/fonts",
+        },
+      },
+    ],
+  },
+  {
+    test: /\.(svg)(\?v=\d+\.\d+\.\d+)?$/,
+    use: [
+      {
+        loader: "file-loader",
+        options: {
+          name: "[name].[ext]",
+          outputPath: "./static",
+          publicPath: "../../dist",
+        },
+      },
+    ],
   },
 ];
 
@@ -69,13 +84,7 @@ module.exports = () => ({
   },
 
   optimization: {
-    minimizer: [
-      new OptimizeCssAssetsPlugin({
-        cssProcessor: cssnano,
-      }),
-
-      new TerserPlugin(),
-    ],
+    minimizer: [new CssMinimizerPlugin(), new TerserPlugin()],
   },
 
   plugins: plugins(),

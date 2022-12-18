@@ -1,0 +1,56 @@
+{% set cols = getCols(hotels) %}
+<div class="hotels__section">
+	<div class="row pt-3 pb-5">
+		<div class="col-md-5 col-12 mx-auto">
+			<ul class="list-unstyled hotels__filter">
+				<li class="hotels__filter-item px-2">Singapore</li>
+				<li class="hotels__filter-item px-2">China</li>
+				<li class="hotels__filter-item px-2">India</li>
+				<li class="hotels__filter-item px-2">Bhutan</li>
+				<li class="hotels__filter-item px-2">Thailand</li>
+				<li class="hotels__filter-item px-2">Nepal</li>
+			</ul>
+		</div>
+	</div>
+	<div class="row">
+		{% for hotel in hotels %}
+			<div class="col-lg-3 col-12">
+				<div class="card card--hotel">
+					<img src="{{fn('get_the_post_thumbnail_url', hotel.ID)}}" class="card-img-top" alt="..." loading="lazy" width="320" height="100%" lazyload>
+					<div class="card-body">
+						<h2 class="card-title mt-2 hotel__title">{{hotel.post_title}}</h2>
+						<div class="text-right hotel__rate">
+							<div class="rating">
+								{% set rate = getField('rate', hotel.ID) %}
+								{% for x in 5 .. 1 %}
+									{% set active = x <= rate ? 'active' : '' %}
+									<label class="{{active}}"></label>
+								{% endfor %}
+							</div>
+						</div>
+						<p class="hotel__price mt-2">
+							<span class="hotel__price--normal">
+								&dollar;{{getField('normal_price', hotel.ID)}}
+							</span>
+							&nbsp;
+							<span class="hotel__price--sell">&dollar;{{getField('sell_price', hotel.ID)}}</span>
+							<span class="hotel__price--text">/night</span>
+						</p>
+
+						<p class="card-text hotel__excerpt mb-4">{{hotel.post_excerpt}}</p>
+						<div class="d-grid gap-2 mt-3">
+							<button class="btn btn-primary hotel__button" type="button">SELECT ROOMS</button>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		{% endfor %}
+
+	</div>
+	<div class="row">
+		<div class="col-12 text-center my-5 hotels__btn">
+			<button>View All</button>
+		</div>
+	</div>
+</div>

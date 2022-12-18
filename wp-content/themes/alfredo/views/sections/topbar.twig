@@ -1,0 +1,29 @@
+<div class="topbar d-flex align-items-center">
+	<div class="container-fluid d-inline">
+		<div class="row justify-content-between align-items-center mx-2">
+			<div class="col-lg-6 col-md-6 col-12">
+				<ul class="list-unstyled d-flex align-items-center h-100 my-auto">
+					{% for item in contactInfo %}
+						<li class="topbar__item">
+							<img src="{{item.icon}}" alt="Icon" class="me-1 topbar__icon" width="20" height="20">
+							<a href="{{item.type == 'email' ? 'mailto:' : 'tel:'}}{{item.text}}" class="topbar__link">
+								{{item.text}}
+							</a>
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+			<div class="col-lg-6 col-md-6 col-12">
+				<ul class="list-unstyled d-flex justify-content-end">
+					{% for element in socialNetworks %}
+						<li class="topbar__item topbar__item--social">
+							<a class="topbar__link topbar__link--social" href="{{element.link}}" aria-label="Social Network Link">
+								<img class="topbar__icon topbar__icon--social" src="{{element.icon}}" alt="" width="20" height="20">
+							</a>
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

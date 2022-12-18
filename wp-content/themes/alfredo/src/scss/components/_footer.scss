@@ -1,0 +1,21 @@
+.footer {
+  background-color: $black-bg;
+  hr {
+    margin: 0px;
+    opacity: 1;
+  }
+  &__email {
+    color: $gray;
+    @include font("Roboto", 24px, sans-serif, 400);
+  }
+
+  &__info {
+    color: $gray;
+    @include font("Roboto", 14px, sans-serif, 400);
+  }
+
+  &__copy {
+    color: $gray;
+    @include font("Roboto", 14px, sans-serif, 400);
+  }
+}

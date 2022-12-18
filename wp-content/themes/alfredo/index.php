@@ -10,4 +10,4 @@ use Timber\Timber;
 
 $context = Timber::context();
 $context['page'] = new Post();
-Timber::render('pages/underconstruction.twig', $context);
+Timber::render('pages/index.twig', $context);

@@ -3,14 +3,15 @@
 namespace Alfredo\Config;
 
 use Alfredo\Config\Assets;
+use Alfredo\Config\CustomAjax;
 use Alfredo\Config\CustomFunctions;
 use Alfredo\Config\Customize;
-use Alfredo\Config\CustomPostTypes;
 use Alfredo\Config\Plugins;
 use Alfredo\Config\SettingsPage;
 use Alfredo\Config\Shortcodes;
 use Alfredo\Config\SVGSupport;
 use Alfredo\Config\Widgets;
+use Alfredo\Elementor\CustomElementor;
 use Timber\Menu;
 use Timber\Site;
 
@@ -47,6 +48,7 @@ class StarterSite extends Site
         new CustomAjax();
         new Shortcodes();
         new Widgets();
+        new CustomElementor();
         parent::__construct();
     }
 
@@ -141,8 +143,10 @@ class StarterSite extends Site
     {
         $context['mainMenu'] = new Menu('top-menu');
         $context['footerMenu'] = new Menu('footer-menu');
-        $context['site'] = $this;
+        $context['main'] = $this;
         $context['logo'] = $this->getLogo();
+        $context['contactInfo'] = get_field('contact_info', 'option');
+        $context['socialNetworks'] = get_field('social_networks', 'option');
         $context['options'] = get_field('footer', 'option');
         return $context;
     }
@@ -157,6 +161,14 @@ class StarterSite extends Site
             'getField',
             array(new CustomFunctions, 'getField')
         ));
+        $twig->addFunction(new \Timber\Twig_Function(
+            'getCols',
+            array(new CustomFunctions, 'getCols')
+        ));
+        $twig->addFunction(new \Timber\Twig_Function(
+            'getStars',
+            array(new CustomFunctions, 'getStars')
+        ));
 
         $twig->addExtension(new \Twig\Extension\StringLoaderExtension());
 
@@ -169,7 +181,7 @@ class StarterSite extends Site
                 $logo = get_theme_mod('custom_logo');
                 $image = wp_get_attachment_image_src($logo, 'full');
                 $image_url = $image[0];
-                return "<img src='{$image_url}' alt='Logo' />";
+                return "<img src='{$image_url}' alt='Logo' width='188' height='100%' loading='lazy'/>";
             } else {
                 $site_title = get_bloginfo('name');
                 return $site_title;
@@ -177,3 +189,5 @@ class StarterSite extends Site
         }
     }
 }
+
+add_filter('show_admin_bar', '__return_false');

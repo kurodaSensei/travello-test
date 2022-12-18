@@ -1,0 +1,66 @@
+.card-price {
+  background-color: $black;
+  border: none;
+  padding: 50px 40px;
+
+  &--highlight {
+    background-color: rgba($color: #192759, $alpha: 0.8);
+  }
+
+  hr {
+    background-color: $gray-2 !important;
+    height: 2px;
+    opacity: 1;
+  }
+
+  &__header {
+    margin-bottom: 0 !important;
+  }
+
+  &__price {
+    color: $white;
+    @include font("DM Serif Display", 50px, serif, 400);
+  }
+
+  &__text {
+    color: $gray-3;
+    @include font("Open Sans", 16px, sans-serif, 400);
+  }
+
+  &__plan-type {
+    color: $white;
+    @include font("Arsenal", 21px, serif, 400);
+  }
+
+  &__description {
+    color: $gray-2;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    @include font("Open Sans", 16px, sans-serif, 400);
+  }
+
+  &__items {
+    margin-top: 3rem;
+    padding-left: 1rem;
+    list-style-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxOCAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTUuMjc1OTQgMTEuNTIwNUwxLjg3MTc3IDguMTE2NEwwIDkuOTg4MTdMNC40OTIyNSAxNC40ODA0TDQuNDk3NCAxNC40NzUyTDUuMzE3NTEgMTUuMjk1M0wxOCAyLjYxMjczTDE2LjA5MTkgMC43MDQ1OUw1LjI3NTk0IDExLjUyMDVaIiBmaWxsPSIjMDA1OUFDIi8+Cjwvc3ZnPgo=");
+  }
+
+  &__item {
+    color: $gray-2;
+    margin-bottom: 22px;
+    @include font("Open Sans", 16px, sans-serif, 400);
+  }
+
+  &__button {
+    background-color: $blue;
+    height: 48px;
+    margin: 2rem 1rem 0 1rem;
+    @include font("Open Sans", 16px, sans-serif, 400);
+    border: none;
+  }
+
+  .card-footer {
+    background-color: transparent;
+    border: none;
+  }
+}
