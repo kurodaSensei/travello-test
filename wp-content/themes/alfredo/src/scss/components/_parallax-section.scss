@@ -1,0 +1,5 @@
+.parallax-section {
+  p {
+    @include font("Open Sans", 17px, sans-serif, 400);
+  }
+}
