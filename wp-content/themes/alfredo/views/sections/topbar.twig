@@ -6,7 +6,8 @@
 					{% for item in contactInfo %}
 						<li class="topbar__item">
 							<img src="{{item.icon}}" alt="Icon" class="me-1 topbar__icon" width="20" height="20">
-							<a href="{{item.type == 'email' ? 'mailto:' : 'tel:'}}{{item.text}}" class="topbar__link">
+							<a href="{{item.type == 'email' ? 'mailto:' : 'tel:'}}{{item.text}}" class="topbar__link" aria-label="Social Network Link">
+
 								{{item.text}}
 							</a>
 						</li>
